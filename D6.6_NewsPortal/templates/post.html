@@ -1,0 +1,28 @@
+<!--  наследуемся от шаблона default.html, который мы создавали для flatpages -->
+{% extends 'flatpages/default.html' %}
+
+{% load my_filters %}
+
+
+{% block content %}
+   <b>Выбранная {{ post.select }}</b>
+   <br><br>
+   <style> div { line-height: 1; } </style>
+    
+   {{ post.title }}<br>
+   {{ post.title|toxic }}<br>   
+   
+   <div align="left">
+     <b>id:</b> {{ post.pk }}<br>
+     <b>Дата :</b><br>  {{ post.time_in|date:'d-m-Y' }}<br>
+     <b>Время:</b><br>  {{ post.time_in|date:'H:m:s' }}<br>    
+     </div><br>
+   <div align="justify">
+     <b>Текст:</b><br> {{ post.text }}<br><br>
+     <b>Текст:</b><br> {{ post.text|toxic }}<br><br>
+ 
+     </div> 
+      
+{% endblock content %}
+
+

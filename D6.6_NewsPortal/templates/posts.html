@@ -1,0 +1,19 @@
+<!--  наследуемся от шаблона default.html, который мы создавали для flatpages -->
+{% extends 'flatpages/default.html' %}
+ 
+<!-- В контенте на странице мы выводим все товары -->
+{% block content %}
+   <b>Всего публикаций {{ posts|length }}</b>
+   <br><br>
+   <style> div { line-height: 1; } </style>
+    
+   {% for post in posts.all.reverse %}
+   <div align="left">
+     <b>Тип публикации:</b> {{ post.select }}<br>
+     <b>id:</b> {{ post.pk }}<br>
+     <b>Заголовок:</b><br> {{ post.title }}<br>
+     <b>Дата/время:</b><br>  {{ post.time_in|date:'d-m-Y / H:m:s' }}<br>
+     <b>Текст:</b> <br> {{ post.text|truncatewords:20 }}<br>
+      </div><br>
+   {% endfor %}
+{% endblock content %}
