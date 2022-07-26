@@ -1,0 +1,17 @@
+<!--  наследуемся от шаблона default.html, который мы создавали для flatpages -->
+{% extends 'flatpages/default.html' %}
+
+{% load my_tags %}
+
+{% block title %}
+   <b>Удаление</b><br>
+{% endblock title %}
+
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    <p>Удалить новость<br>"{{ object.title }}"?</p>
+    <input type="submit" value="Да, удалить" />
+</form>
+{% endblock content %}
+
