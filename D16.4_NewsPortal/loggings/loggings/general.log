@@ -1,0 +1,17 @@
+2022-11-04 13:24:16,746 | django.utils.autoreload | INFO     | autoreload | Watching for file changes with StatReloader
+2022-11-04 13:24:30,824 | django.server           | INFO     | basehttp   | "GET / HTTP/1.1" 200 3742
+2022-11-04 13:24:35,785 | django.server           | INFO     | basehttp   | "GET /234/ HTTP/1.1" 200 3275
+2022-11-04 13:24:40,037 | django.server           | INFO     | basehttp   | "GET /accounts/login/ HTTP/1.1" 302 0
+2022-11-04 13:24:40,042 | django.server           | INFO     | basehttp   | "GET /users/common/ HTTP/1.1" 302 0
+2022-11-04 13:24:40,049 | django.server           | INFO     | basehttp   | "GET /docs_work/ HTTP/1.1" 200 4182
+2022-11-04 13:24:42,789 | django.server           | INFO     | basehttp   | "GET /docs_work/news/edit/ HTTP/1.1" 200 7987
+2022-11-04 13:24:49,623 | django.server           | INFO     | basehttp   | "GET /docs_work/news/create/ HTTP/1.1" 200 3530
+2022-11-04 13:24:57,101 | django.server           | INFO     | basehttp   | "POST /docs_work/news/create/ HTTP/1.1" 302 0
+2022-11-04 13:24:57,113 | django.server           | INFO     | basehttp   | "GET /docs_work/280/ HTTP/1.1" 200 3149
+2022-11-04 13:25:00,123 | django.server           | INFO     | basehttp   | "GET /docs_work/news/create/ HTTP/1.1" 200 3530
+2022-11-04 13:25:04,630 | django.server           | INFO     | basehttp   | "GET /docs_work/news/edit/ HTTP/1.1" 200 8387
+2022-11-04 13:25:08,604 | django.server           | INFO     | basehttp   | "GET /docs_work/news/280/delete HTTP/1.1" 301 0
+2022-11-04 13:25:08,609 | django.server           | INFO     | basehttp   | "GET /docs_work/news/280/delete/ HTTP/1.1" 200 2775
+2022-11-04 13:25:09,825 | django.server           | INFO     | basehttp   | "POST /docs_work/news/280/delete/ HTTP/1.1" 302 0
+2022-11-04 13:25:09,878 | django.server           | INFO     | basehttp   | "GET /docs_work/news/edit/ HTTP/1.1" 200 7987
+2022-11-04 13:25:51,775 | django.utils.autoreload | INFO     | autoreload | /home/leo/work/skillfactory/django-projects/log_1/django_project/settings.py changed, reloading.

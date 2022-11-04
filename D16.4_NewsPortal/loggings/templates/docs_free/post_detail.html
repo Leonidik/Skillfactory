@@ -1,0 +1,29 @@
+<!--  наследуемся от шаблона default.html, который мы создавали для flatpages -->
+{% extends 'docs_free/flatpages/default.html' %}
+
+{% block title %}
+   <style> div { line-height: 1.15; } </style>
+   <b>Выбранная публикация</b><br>
+   {{ post_detail.title }}<br><br>
+{% endblock title %}
+
+{% block content %}  
+   <style> div { line-height: 1.1; } </style>
+    
+   <div align="left">
+     <b>Дата &nbsp;&nbsp;:</b>  {{ post_detail.time_in|date:'Y-m-d' }}<br>
+     <b>Время:</b>  {{ post_detail.time_in|date:'H:m:s' }}<br>
+     <b>Автор:</b>  {{ post_detail.author.user.first_name }} {{ post_detail.author.user.last_name }}<br>
+      
+     <b>Тип публикации:</b> {{ post_detail.select }}<br>
+     <b>Категории:</b> {{ category }} <br>         
+         
+     </div><br>
+     <div align="justify">
+     <b>Текст:</b><br> {{ post_detail.text }}<br><br>    
+     
+     <input type="button" onclick="history.back();" value="<< Назад"/>
+     </div>     
+{% endblock content %}
+
+
