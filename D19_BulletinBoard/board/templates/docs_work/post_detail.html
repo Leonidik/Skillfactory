@@ -1,0 +1,26 @@
+<!--  наследуемся от шаблона default.html, который мы создавали для flatpages -->
+{% extends 'docs_work/flatpages/default.html' %}
+
+{% block title %}
+   <style> div { line-height: 1.15; } </style>
+ <div align="left">
+     <b>Дата &nbsp;&nbsp;:</b>  {{ post_detail.time_in|date:'Y-m-d' }}<br>
+     <b>Время:</b>  {{ post_detail.time_in|date:'H:m:s' }}<br>
+     <b>Автор:</b>  {{ post_detail.user.email }} <br>
+     <b>Категории:</b> {{ category }}      
+{% endblock title %}
+
+{% block content %}  
+   <style> div { line-height: 1.1; } </style>           
+     </div><br>
+     <div align="justify">
+     <b>Наименование:</b>
+     {{ post_detail.title }}<br>
+     <b>Содержание:</b><br><br>        
+     {{ post_detail.body|safe }}<br>         
+     <button onclick="document.location='/docs_work/'"><< Назад </button>
+     <br>
+     </div> 
+{% endblock content %}
+                  
+

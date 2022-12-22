@@ -1,0 +1,48 @@
+<!--  наследуемся от шаблона default.html, который мы создавали для flatpages -->
+{% extends 'docs_com/flatpages/default.html' %}
+ 
+{% block title %}
+   <div align="center"> 
+      <b>Перечень отзывов на объявления пользователя {{request.user.email}}</b><br>
+{% endblock title %}
+
+{% block content %}
+   <br>
+   <style> div { line-height: 1; } </style>   
+   {% for com in comment_list %}
+     <div align="left">                    
+        <b> {{ com.time_in|date:'Y-m-d  H:m:s' }} </b><br>
+        <b> Номер объявления :  </b> {{ com.post_id }}<br>              
+        <b> Автор отзыва: </b> {{ com.user }}<br>           
+        <b> Текст отзыва : </b><br>        
+         {{com.text}}<br><br>
+<!--        <a href= '/docs_com/comment_update/{{com.pk}}'> Обновить значение статуса и/или тональности отзыва>></a><br><br>   -->      
+     </div>
+   {% endfor %}
+
+
+   {# Добавляем пагинацию на страницу #}   
+   {# Информация о предыдущих страницах #}
+   {% if page_obj.has_previous %}
+       <a href="?page=1">1</a>
+       {% if page_obj.previous_page_number != 1 %}
+           ...
+           <a href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
+       {% endif %}
+   {% endif %}
+   {# Информация о текущей странице #}
+   {{ page_obj.number }}      
+   {# Информация о следующих страницах #}
+   {% if page_obj.has_next %}
+       <a href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+       {% if paginator.num_pages != page_obj.next_page_number %}
+           ...
+           <a href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+       {% endif %}
+   {% endif %}
+
+   <br> <div align="left"> <a href="{% url 'com_post_list' %}"><<Назад</a> </div>
+  
+{% endblock content %}
+
+

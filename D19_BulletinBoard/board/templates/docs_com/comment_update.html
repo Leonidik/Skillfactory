@@ -1,0 +1,14 @@
+
+<b>Обновление статуса и/или тональности<br>
+отзыва номер: </b>{{comment.pk}}<br>
+<b> пользователя:</b> {{comment.user}}<br>
+<b>на мое объвление номер: </b> {{comment.post_id}}</b><br>
+
+<form method="post">
+    {% csrf_token %}
+<!--    {{ form.media }} -->
+    {{ form.as_p }}
+    <input type="submit" value="Save"><br><br>
+    <input type="button" onclick="history.back();" value="<< Назад"/>
+</form>
+

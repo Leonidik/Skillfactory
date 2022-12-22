@@ -1,0 +1,53 @@
+<!--  наследуемся от шаблона default.html, который мы создавали для flatpages -->
+{% extends 'docs_com/flatpages/default.html' %}
+ 
+{% block title %}
+   <div align="center"> 
+      <b>Перечень объявлений пользователя {{request.user.email}}</b><br>
+{% endblock title %}
+
+{% block content %}
+   <br>
+   <style> div { line-height: 1; } </style>   
+   {% for post in com_post_list %}
+     <div align="left">             
+        <b> {{ post.time_in|date:'Y-m-d  H:m:s' }} | </b> {{ post.title }}<br>     
+        <a href='{{post.pk}}'> Посмотреть объявление>></a> <br>
+        Посмотреть перечень:<br>
+        <a href='comment_list_received/'> полученных</a> &nbsp;&nbsp;&nbsp;
+        <a href='comment_list_adopted/'> принятых</a>  &nbsp;&nbsp;&nbsp; 
+        <a href='comment_list_rejected/'> отвергнутых</a> &nbsp;&nbsp;
+        откликов   
+        <br>        
+     </div>
+   {% endfor %}
+  
+
+   {# Добавляем пагинацию на страницу #}   
+   {# Информация о предыдущих страницах #}
+   {% if page_obj.has_previous %}
+       <a href="?page=1">1</a>
+       {% if page_obj.previous_page_number != 1 %}
+           ...
+           <a href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
+       {% endif %}
+   {% endif %}
+   {# Информация о текущей странице #}
+   {{ page_obj.number }}      
+   {# Информация о следующих страницах #}
+   {% if page_obj.has_next %}
+       <a href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+       {% if paginator.num_pages != page_obj.next_page_number %}
+           ...
+           <a href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+       {% endif %}
+   {% endif %}
+   
+   
+<!--  <br> <div align="left"> <button onclick="location.href='docs_work'" %}'"><< Назfnjfnjад </button><br><br> </div> -->
+<!--  <br> <div align="left">  <a href="/docs_work"> <<Назад </a> </div><br><br> -->
+   <br> <div align="left"> <a href="{% url 'post_list' %}"><<Назад</a> </div>
+ 
+{% endblock content %}
+
+

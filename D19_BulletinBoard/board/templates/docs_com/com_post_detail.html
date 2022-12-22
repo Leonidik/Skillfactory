@@ -1,0 +1,26 @@
+<!--  наследуемся от шаблона default.html, который мы создавали для flatpages -->
+{% extends 'docs_com/flatpages/default.html' %}
+
+{% block title %}
+   <style> div { line-height: 1.15; } </style>
+ <div align="left">
+     <b>Дата &nbsp;&nbsp;:</b>  {{ com_post_detail.time_in|date:'Y-m-d' }}<br>
+     <b>Время:</b>  {{ com_post_detail.time_in|date:'H:m:s' }}<br>
+     <b>Автор:</b>  {{ com_post_detail.user.email }} <br>
+     <b>Категории:</b> {{ category }}      
+{% endblock title %}
+
+{% block content %}  
+   <style> div { line-height: 1.1; } </style>           
+     </div><br>
+     <div align="justify">
+     <b>Наименование:</b>
+     {{ com_post_detail.title }}<br>
+     <b>Содержание:</b><br><br>        
+     {{ com_post_detail.body|safe }}<br>         
+     <button onclick="document.location='/docs_com/'"><< Назад </button>
+     <br>
+     </div> 
+{% endblock content %}
+                  
+
